@@ -9,7 +9,7 @@
 .red{
     color: rgb(194, 0, 0);
 }
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 578px){
     .navComp{
         height: 50px;
     }
