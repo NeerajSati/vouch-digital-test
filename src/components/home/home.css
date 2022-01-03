@@ -1,0 +1,19 @@
+.home{
+    height: calc(100vh - 85px);
+}
+.passcheck{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media only screen and (max-width: 624px){
+.bgimage{
+    display: none;
+}
+.hidestk{
+    height: 100%;
+}
+.rowclass{
+    height: 100%;
+}
+}
