@@ -5,10 +5,22 @@ function NavComp() {
   return (
     <Navbar className="navComp" bg="light" expand="sm">
       <Navbar.Brand href=".">
-        <h1 style={{
-          color: "#023047", marginLeft: "20px"}}>
-          <strong>ATools<span style={{
-            color: "red"}}>.</span></strong>
+        <h1
+          style={{
+            color: "#023047",
+            marginLeft: "20px",
+          }}
+        >
+          <strong>
+            ATools
+            <span
+              style={{
+                color: "red",
+              }}
+            >
+              .
+            </span>
+          </strong>
         </h1>
       </Navbar.Brand>
       <Navbar.Collapse id="basic-navbar-nav">

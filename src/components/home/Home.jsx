@@ -1,32 +1,32 @@
-import React, {useRef, useState} from "react";
+import React, { useRef, useState } from "react";
 import "./home.css";
 import { Row, Col, Image, Stack, Form, Button, Modal } from "react-bootstrap";
-import axios from 'axios';
+import axios from "axios";
 
 const baseURL = "https://reqres.in/api/login";
 function Home() {
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
-    const userRef = useRef()
-    const passwordRef = useRef()
-    
-    const [emailError,setEmailError]=useState(false);
+  const userRef = useRef();
+  const passwordRef = useRef();
 
-const handleSubmit = async (e)=>{
-    e.preventDefault()
-    axios.post(baseURL, {
+  const [emailError, setEmailError] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    axios
+      .post(baseURL, {
         email: userRef.current.value,
         password: passwordRef.current.value,
-    })
-    .then(function (response) {
+      })
+      .then(function (response) {
         setEmailError(false);
         setShow(true);
       })
       .catch(function (error) {
         setEmailError(true);
       });
-};
-
+  };
 
   return (
     <div
@@ -38,18 +38,21 @@ const handleSubmit = async (e)=>{
         maxWidth: "auto",
       }}
     >
-    <Modal show={show} onHide={handleClose} style={{color: "darkgreen"}}>
-    <Modal.Header closeButton>
-      <Modal.Title>Login Successful!</Modal.Title>
-    </Modal.Header>
-    <Modal.Body>Woohoo, Login is succssfull! But the webpage is not implemented any further as of now.</Modal.Body>
-    <Modal.Footer>
-      <Button variant="secondary" onClick={handleClose}>
-        Close
-      </Button>
-    </Modal.Footer>
-  </Modal>
-    
+      <Modal show={show} onHide={handleClose} style={{ color: "darkgreen" }}>
+        <Modal.Header closeButton>
+          <Modal.Title>Login Successful!</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          Woohoo, Login is succssfull! But the webpage is not implemented any
+          further as of now.
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
       <Row className="rowclass">
         <Col
           style={{
@@ -63,7 +66,7 @@ const handleSubmit = async (e)=>{
             </h1>
             <p style={{ marginTop: "0" }}>PLEASE LOGIN TO CONTINUE!</p>
             <Form.Control
-              ref={userRef} 
+              ref={userRef}
               className="me-auto"
               placeholder="Email Address*"
               style={{
@@ -72,7 +75,7 @@ const handleSubmit = async (e)=>{
               }}
             />
             <Form.Control
-            ref={passwordRef}
+              ref={passwordRef}
               className="me-auto"
               placeholder="Password*"
               style={{
@@ -82,7 +85,7 @@ const handleSubmit = async (e)=>{
               type="password"
             />
             <Button
-            onClick={handleSubmit}
+              onClick={handleSubmit}
               style={{
                 backgroundColor: "#023047",
                 border: "none",
@@ -99,13 +102,15 @@ const handleSubmit = async (e)=>{
               </Form.Group>
               <Form.Text className="text-muted">Forgot Password?</Form.Text>
             </div>
-            { emailError && <Form.Text style={{color: "red", fontSize:"15px"}}>Wrong Email/Password!</Form.Text>}
+            {emailError && (
+              <Form.Text style={{ color: "red", fontSize: "15px" }}>
+                Wrong Email/Password!
+              </Form.Text>
+            )}
           </Stack>
         </Col>
         <Col xs={6} className="bgimage">
-          <Image
-            src="https://cdn.pixabay.com/photo/2021/11/19/15/21/christmas-6809681_960_720.png"
-          />
+          <Image src="https://cdn.pixabay.com/photo/2021/11/19/15/21/christmas-6809681_960_720.png" />
         </Col>
       </Row>
     </div>
