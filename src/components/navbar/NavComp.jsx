@@ -4,9 +4,11 @@ import { Navbar, Nav, Button } from "react-bootstrap";
 function NavComp() {
   return (
     <Navbar className="navComp" bg="light" expand="sm">
-      <Navbar.Brand href="." className="ml-5">
-        <h1 className="brand">
-          ATools<span className="red">.</span>
+      <Navbar.Brand href=".">
+        <h1 style={{
+          color: "#023047", marginLeft: "20px"}}>
+          <strong>ATools<span style={{
+            color: "red"}}>.</span></strong>
         </h1>
       </Navbar.Brand>
       <Navbar.Collapse id="basic-navbar-nav">
